@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+@font-face {
+    font-family: "Digital Clock";
+    /* src: url('https://cdn.jsdelivr.net/gh/dteirney/trains.maxx.co.nz/fonts/scoreboard/scoreboard-webfont.eot'); */
+    src: 
+    /* url('https://cdn.jsdelivr.net/gh/dteirney/trains.maxx.co.nz/fonts/scoreboard/scoreboard-webfont.eot') format('embedded-opentype'),
+    url('https://cdn.jsdelivr.net/gh/dteirney/trains.maxx.co.nz/fonts/scoreboard/scoreboard-webfont.woff') format('woff'), */
+    url('https://cdn.jsdelivr.net/gh/dteirney/trains.maxx.co.nz/fonts/scoreboard/scoreboard-webfont.ttf') format('truetype')
+    /* url('https://cdn.jsdelivr.net/gh/dteirney/trains.maxx.co.nz/fonts/scoreboard/scoreboard-webfont.svg') format('svg'); */
+}
+
+h2 {
+    font-family: "Digital Clock", sans-serif;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background: #2c2c2c;
+    color: #f51414f8;
+    padding: 1rem 0;
+    margin-right: 400px;
+    margin-left: 400px;
+    }

@@ -1,0 +1,27 @@
+.formBox {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+label {
+    font-size: 30px;
+}
+
+input {
+    font-size: 30px;
+}
+
+#lastName {
+    margin-left: 2px;
+}
+
+#eMail {
+    margin-left: 60px;
+}
+
+ button {
+     margin-left: 290px;
+     margin-top: 5px;
+     font-size: 18px;
+ }

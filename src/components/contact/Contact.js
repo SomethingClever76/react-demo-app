@@ -1,4 +1,5 @@
 import React from 'react';
+import './Contact.css'
 
 class Contact extends React.Component {
     constructor(props) {
@@ -44,26 +45,27 @@ class Contact extends React.Component {
             )
         }
         return (
-            <div>
+            <div className="formBox">
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label>First Name:</label>
+                    <div id="firstName">
+                        <label>First Name: </label>
                         <input onChange={this.handleChange} type="text" name="firstName" value={this.state.formData.firstName} />
                     </div>
-                    <div>
-                        <label>Last Name:</label>
+                    <div id="lastName">
+                        <label>Last Name: </label>
                         <input onChange={this.handleChange} type="text" name="lastName" value={this.state.formData.lastName} />
                     </div>
-                    <div>
-                        <label>E-mail:</label>
+                    <div id="eMail">
+                        <label>E-mail: </label>
                         <input onChange={this.handleChange} type="email" name="email" value={this.state.formData.email} />
                     </div>
                     <button>Submit Form</button> <br/>
-                    {this.state.formData.firstName}
+                    {/*To make sure we are updating state while adding input to the form */}
+                    {/* {this.state.formData.firstName}
                     <br/>
                     {this.state.formData.lastName}
                     <br/>
-                    {this.state.formData.email}
+                    {this.state.formData.email} */}
                 </form>
             </div>
         );

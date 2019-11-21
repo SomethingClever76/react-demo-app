@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond:600i&display=swap" rel="stylesheet');
+
+.welcomeBox {
+    font-family: 'EB Garamond', serif;
+    font-size: 30px;
+    font-style: italic;
+    text-align: center;
+    background-color: lightgray;
+    color: teal;
+    height:75px;
+    border: 2px solid teal;
+    margin: 0px 10px 0px 10px;
+  }
+  
+  .welcomeBox h1 {
+    margin: 0;
+  }

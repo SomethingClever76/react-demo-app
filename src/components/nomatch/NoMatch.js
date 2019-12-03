@@ -10,7 +10,7 @@ function NoMatch() {
             <br />
             Click one of the navigation links above to return to one of our other pages.
             <br />
-            <img src="https://media.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif" />
+            <img src="https://media.giphy.com/media/VbnUQpnihPSIgIXuZv/giphy.gif" alt="A cat wearing glasses growls angrily at its laptop screen."/>
         </div>
     )
 }

@@ -1,0 +1,9 @@
+.jeopardyClue h2 {
+    background-color: #060CE9;
+    color: white;
+    height: 300px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}

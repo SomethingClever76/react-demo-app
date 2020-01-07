@@ -1,9 +1,25 @@
-.jeopardyClue h2 {
+.parentDiv {
+    text-align: center;
+    display: flex;
+}
+
+.jeopardyClue {
     background-color: #060CE9;
     color: white;
-    height: 300px;
+    font-size: 14px;
     width: 500px;
-    display: flex;
-    justify-content: center;
     text-align: center;
+    padding: 30px 10px 0px 10px;
+}
+
+#answerBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+}
+
+#answerBox button {
+    margin: 0;
 }

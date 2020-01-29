@@ -2,8 +2,7 @@ import React from 'react';
 import Welcome from './components/welcome/Welcome';
 import Clock from './components/clock/Clock';
 import Contact from './components/contact/Contact';
-import Jeopardy from './components/jeopardy/Jeopardy';
-// import JeopardyDisplay from './components/jeopardyDisplay/JeopardyDisplay';
+import Jeopardy from './components/jeopardy/JeopardyMediumMode';
 import NoMatch from './components/nomatch/NoMatch';
 //Import the Navigation component
 import Navigation from './components/navigation/Navigation';

@@ -46,8 +46,8 @@ class Jeopardy extends Component {
             submitted: true
         })
         if (this.state.data.answer === this.state.userAnswer) {
-            this.setState((state, props) => ({
-                score: this.state.score + this.state.data.value
+            this.setState((state) => ({
+                score: state.score + this.state.data.value
             }))
             this.getNewQuestion();
             this.resetForm();
@@ -63,10 +63,10 @@ class Jeopardy extends Component {
 
     // method for clearing answerBox (called in the handleSubmit method)
     resetForm = (event) => {
-        this.setState((state, props) => ({
+        this.setState(({
             submitted: false,
             userAnswer: ""
-        }))
+        ))
     }
 
     render() {
@@ -80,14 +80,20 @@ class Jeopardy extends Component {
 
         return (
             <JeopardyDisplay
-                category={this.props.category}
-                question={this.props.question}
-                value={this.props.value}
-                score={this.props.score}
-                submit={() => this.handleSubmit()}
-                change={() => this.handleChange()}
+            // left column declares a name for the thing in the right 
+            // column being passed to JeopardyDisplay.js as props.
+            // The value is determined by THIS file, which is controlling state.
+            //"The PARENT is always RIGHT" (on the right)
+                category={this.state.data.category}
+                question={this.state.data.question}
+                value={this.state.data.value}
+                score={this.state.score}
+                submit={this.handleSubmit}
+                change={this.handleChange}
+                answer={this.state.userAnswer}
             />
         );
     }
 }
+
 export default Jeopardy;

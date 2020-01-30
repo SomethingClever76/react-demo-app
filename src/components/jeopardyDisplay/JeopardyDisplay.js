@@ -4,18 +4,23 @@ function JeopardyDisplay(props) {
     return (
         <div className="parentDiv">
             <div className="jeopardyClue">
+                {/* The values of the props being passed are defined in
+                JeopardyMediumMode, lines 86-92. We are using props."whatever the name
+                is in the left column" from the parent component. */}
+                {/* Note that category uses the data passed in as a prop to FURTHER access
+                information from the data! */}
                 <h2>
-                    Category: {props.data.category.title}
+                    Category: {props.category.title}
                 </h2>
                 <br />
                 <br />
                 <h2>
-                    Question: {props.data.question} <br />
+                    Question: {props.question} <br />
                 </h2>
                 <br />
                 <br />
                 <h2>
-                    Value: {props.data.value}  <br />
+                    Value: {props.value}  <br />
                 </h2>
                 <br />
                 <br />
@@ -23,12 +28,12 @@ function JeopardyDisplay(props) {
             <div id="answerBox">
                 <h3>SCORE: {props.score} </h3>
                 <br />
-                <form onSubmit={props.handleSubmit}>
-                    <input onChange={props.handleChange}
+                <form onSubmit={props.submit}>
+                    <input onChange={props.change}
                         type="text"
                         placeholder="Type your answer here"
                         name="answerBox"
-                        value={props.userAnswer} />
+                        value={props.answer} />
                     <br />
                     <button>Submit Answer</button>
                     <br />

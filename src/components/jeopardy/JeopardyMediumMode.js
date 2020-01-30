@@ -66,7 +66,7 @@ class Jeopardy extends Component {
         this.setState(({
             submitted: false,
             userAnswer: ""
-        ))
+        }))
     }
 
     render() {

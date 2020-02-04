@@ -6,12 +6,14 @@ class JeopardyService {
         this.client = client;
     }
 
-    // getQuestion(){
-    //     return this.client.get(this.url);
-    // }
+    //Used in Normal and Medium Mode only.
+    getQuestion(){
+        return this.client.get(this.url);
+    }
 
-    get2Questions(){
-        return this.client.get(this.url + "?count=2");
+    //Used in Hard Mode only.
+    get3Questions(){
+        return this.client.get(this.url + "?count=3");
     }
 }
 export default JeopardyService;

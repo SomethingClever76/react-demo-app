@@ -1,6 +1,28 @@
 import React from "react";
 
-function JeopardyDisplayHardMode(props) {
+function JeopardyDisplay(props) {
+    //Displays only the category and value of the question
+    //while props.catSel === false. After clicking a category,
+    //it should return the full question plus the answerBox.
+    if (props.catSel === false) {
+        return (
+            <div className="parentDiv">
+                <div className="jeopardyClue" onClick={props.pickCat}>
+                    <h2>
+                        Category: {props.category.title}
+                    </h2>
+                    <br />
+                    <br />
+                    <h2>
+                        Value: {props.value}  <br />
+                    </h2>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="parentDiv">
             <div className="jeopardyClue">
@@ -43,4 +65,4 @@ function JeopardyDisplayHardMode(props) {
     );
 }
 
-export default JeopardyDisplayHardMode;
+export default JeopardyDisplay;

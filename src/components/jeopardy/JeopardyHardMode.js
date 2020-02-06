@@ -24,12 +24,12 @@ class Jeopardy extends Component {
                 data: result.data
             })
             console.log(this.state.data)
-            // console.log("Q1 category: " + this.state.data[0].category.title)
-            console.log("Q1 answer: " + this.state.data[0].answer)
-            // console.log("Q2 category: " + this.state.data[1].category.title)
-            console.log("Q2 answer: " + this.state.data[1].answer)
-            // console.log("Q3 category: " + this.state.data[2].category.title)
-            console.log("Q3 answer: " + this.state.data[2].answer)
+            // // console.log("Q1 category: " + this.state.data[0].category.title)
+            // console.log("Q1 answer: " + this.state.data[0].answer)
+            // // console.log("Q2 category: " + this.state.data[1].category.title)
+            // console.log("Q2 answer: " + this.state.data[1].answer)
+            // // console.log("Q3 category: " + this.state.data[2].category.title)
+            // console.log("Q3 answer: " + this.state.data[2].answer)
         })
     }
 
@@ -38,35 +38,38 @@ class Jeopardy extends Component {
         this.getThreeQuestions();
     }
 
-    categoriesDisplay() {
-        for (let i = 0; i < this.state.data.length; i++) {
-            return <JeopardyDisplayHardMode
-                category={this.state.data[i].category}
-                question={this.state.data[i].question}
-                value={this.state.data[i].value}
-                score={this.state.score}
-                submit={this.handleSubmit}
-                change={this.handleChange}
-                answer={this.state.userAnswer}
-                catSel={this.state.categorySelected}
-                pickCat={this.categorySelect}
-            />
-        }
-    }
+    // categoriesDisplay() {
+    //     for (let i = 0; i < this.state.data.length; i++) {
+    //         return <JeopardyDisplayHardMode
+    //             category={this.state.data[i].category}
+    //             question={this.state.data[i].question}
+    //             value={this.state.data[i].value}
+    //             score={this.state.score}
+    //             submit={this.handleSubmit}
+    //             change={this.handleChange}
+    //             answer={this.state.userAnswer}
+    //             catSel={this.state.categorySelected}
+    //             pickCat={this.categorySelect}
+    //         />
+    //     }
+    // }
 
     // What we want to happen when user selects a category.
     //NEED TO FIGURE OUT HOW TO UPDATE STATE SO THAT ONLY THE DATA FOR 
     //THE SELECTED CATEGORY REMAINS (Removing the other two questions, so 
     //that the answer checking functions will work as expected)
     categorySelect = (event) => {
-        let data = this.state.data;
-        data[event.target.name] = event.target.value;
+        let state = this.state;
+        state[event.target.name] = event.target.value;
+        // let data = event.target.value;
         this.setState(
-            {data,
-            categorySelected: true}
+            {state}
+            //categorySelected: true}
         )
-        console.log(this.state.data)
-       
+        console.log(this.state)
+        // let formData = this.state.formData;
+        // formData[event.target.name] = event.target.value;
+        // this.setState({formData});
     }
 
     // What we want to happen when user inputs text in answerBox.
@@ -81,9 +84,8 @@ class Jeopardy extends Component {
         event.preventDefault();
         this.setState({
             submitted: true,
-            categorySelected: false
         })
-
+        
         if (this.state.data.answer === this.state.userAnswer) {
             this.setState((state) => ({
                 score: state.score + this.state.data.value
@@ -99,12 +101,13 @@ class Jeopardy extends Component {
             this.resetForm();
         }
     }
-
+    
     // Method for clearing answerBox (called in the handleSubmit method)
     resetForm = (event) => {
         this.setState(({
             submitted: false,
-            userAnswer: ""
+            userAnswer: "",
+            categorySelected: false
         }))
     }
 
@@ -114,55 +117,79 @@ class Jeopardy extends Component {
             return (
                 <div> </div>
             )
-        }
+        } else if (this.state.data.length === 3) {
 
         return (
-          this.categoriesDisplay()
-        );
+            <>
 
-        // return (
-        //     <>
-        //         <JeopardyDisplayHardMode
-        //             // left column declares a name for the thing in the right column 
-        //             // which is being passed to JeopardyDisplay.js as props.
-        //             // The value is determined by THIS file, which is controlling state.
-        //             //"The PARENT is always RIGHT" (on the right)
-        //             category={this.state.data[0].category}
-        //             question={this.state.data[0].question}
-        //             value={this.state.data[0].value}
-        //             score={this.state.score}
-        //             submit={this.handleSubmit}
-        //             change={this.handleChange}
-        //             answer={this.state.userAnswer}
-        //             catSel={this.state.categorySelected}
-        //             pickCat={this.categorySelect}
-        //         />
-        //         <br />
-        //         <JeopardyDisplayHardMode
-        //             category={this.state.data[1].category}
-        //             question={this.state.data[1].question}
-        //             value={this.state.data[1].value}
-        //             score={this.state.score}
-        //             submit={this.handleSubmit}
-        //             change={this.handleChange}
-        //             answer={this.state.userAnswer}
-        //             catSel={this.state.categorySelected}
-        //             pickCat={this.categorySelect}
-        //         />
-        //         <br />
-        //         <JeopardyDisplayHardMode
-        //             category={this.state.data[2].category}
-        //             question={this.state.data[2].question}
-        //             value={this.state.data[2].value}
-        //             score={this.state.score}
-        //             submit={this.handleSubmit}
-        //             change={this.handleChange}
-        //             answer={this.state.userAnswer}
-        //             catSel={this.state.categorySelected}
-        //             pickCat={this.categorySelect}
-        //         />
-        //     </>
-        // );
+                <JeopardyDisplayHardMode
+                data = {this.state.data}
+                // score={this.state.score}
+                //     submit={this.handleSubmit}
+                //     change={this.handleChange}
+                //     answer={this.state.userAnswer}
+                    catSel={this.state.categorySelected}
+                    pickCat={this.categorySelect}
+                    />
+                
+
+                {/* <JeopardyDisplayHardMode
+                    // left column declares a name for the thing in the right column 
+                    // which is being passed to JeopardyDisplay.js as props.
+                    // The value is determined by THIS file, which is controlling state.
+                    //"The PARENT is always RIGHT" (on the right)
+                    category={this.state.data.category}
+                    question={this.state.data.question}
+                    value={this.state.data.value}
+                    score={this.state.score}
+                    submit={this.handleSubmit}
+                    change={this.handleChange}
+                    answer={this.state.userAnswer}
+                    catSel={this.state.categorySelected}
+                    pickCat={this.categorySelect}
+                /> */}
+                {/* <br />
+                <JeopardyDisplayHardMode
+                    category={this.state.data[1].category}
+                    question={this.state.data[1].question}
+                    value={this.state.data[1].value}
+                    score={this.state.score}
+                    submit={this.handleSubmit}
+                    change={this.handleChange}
+                    answer={this.state.userAnswer}
+                    catSel={this.state.categorySelected}
+                    pickCat={this.categorySelect}
+                />
+                <br />
+                <JeopardyDisplayHardMode
+                    category={this.state.data[2].category}
+                    question={this.state.data[2].question}
+                    value={this.state.data[2].value}
+                    score={this.state.score}
+                    submit={this.handleSubmit}
+                    change={this.handleChange}
+                    answer={this.state.userAnswer}
+                    catSel={this.state.categorySelected}
+                    pickCat={this.categorySelect}
+                /> */}
+            </>
+        );}
+
+        return ( <JeopardyDisplayHardMode
+        // left column declares a name for the thing in the right column 
+        // which is being passed to JeopardyDisplay.js as props.
+        // The value is determined by THIS file, which is controlling state.
+        //"The PARENT is always RIGHT" (on the right)
+        category={this.state.data.category}
+        question={this.state.data.question}
+        value={this.state.data.value}
+        score={this.state.score}
+        submit={this.handleSubmit}
+        change={this.handleChange}
+        answer={this.state.userAnswer}
+        catSel={this.state.categorySelected}
+        pickCat={this.categorySelect}
+    />);
     }
 }
 

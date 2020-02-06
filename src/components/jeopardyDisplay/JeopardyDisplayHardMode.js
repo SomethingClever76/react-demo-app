@@ -1,19 +1,14 @@
 import React from "react";
 
 function JeopardyDisplay(props) {
-    // console.log(props)
-    // console.log(props.data[0])
-    // console.log(props.data[1])
-    // console.log(props.data[2])
     //Displays only the category and value of the question
     //while props.catSel === false. After clicking a category,
     //it should return the full question plus the answerBox.
     if (props.catSel === false) {
-        // for(let i=0; i < props.length; i++) {
-            
         return (
             <div className="parentDiv">
-                <div className="jeopardyClue" onClick={props.pickCat} index = "[0]">
+                <h1>Please select a category</h1>
+                <div className="jeopardyClue" onClick={props.pickCat} data-id={0} >
                     <h2>
                         Category: {props.data[0].category.title}
                     </h2>
@@ -26,59 +21,55 @@ function JeopardyDisplay(props) {
                     <br />
                 </div>
 
-                <div className="jeopardyClue" onClick={props.pickCat} name="data" value={props.data[1]}>
+                <div className="jeopardyClue" onClick={props.pickCat} data-id={1}>
                     <h2>
-                        Category: {props.data[1].category.title}
+                        {/* Category: {props.data[1].category.title} */}
                     </h2>
                     <br />
                     <br />
                     <h2>
-                        Value: {props.data[1].value}  <br />
-                    </h2>
-                    <br />
-                    <br />
-                </div>
-
-                <div className="jeopardyClue" onClick={props.pickCat} name="data" value={props.data[2]}>
-                    <h2>
-                        Category: {props.data[2].category.title}
-                    </h2>
-                    <br />
-                    <br />
-                    <h2>
-                        Value: {props.data[2].value}  <br />
+                        {/* Value: {props.data[1].value}  <br /> */}
                     </h2>
                     <br />
                     <br />
                 </div>
 
+                <div className="jeopardyClue" onClick={props.pickCat} data-id={2}>
+                    <h2>
+                        {/* Category: {props.data[2].category.title} */}
+                    </h2>
+                    <br />
+                    <br />
+                    <h2>
+                        {/* Value: {props.data[2].value}  <br /> */}
+                    </h2>
+                    <br />
+                    <br />
+                </div>
             </div>
         );
-        }
-    
+    }
 
     return (
-        // <div>Bite Me</div>
-
         <div className="parentDiv">
             <div className="jeopardyClue">
                 {/* The values of the props being passed are defined in
-                JeopardyMediumMode, lines 86-92. We are using props."whatever the name
+                JeopardyHardMode, lines 86-92. We are using props."whatever the name
                 is in the left column" from the parent component. */}
                 {/* Note that category uses the data passed in as a prop to FURTHER access
-                information from the data! */}
+                information from the data (i.e., "title")! */}
                 <h2>
-                    Category: {props.category.title}
+                    Category: {props.data[0].category.title}
                 </h2>
                 <br />
                 <br />
                 <h2>
-                    Question: {props.question} <br />
+                    Question: {props.data[0].question} <br />
                 </h2>
                 <br />
                 <br />
                 <h2>
-                    Value: {props.value}  <br />
+                    Value: {props.data[0].value}  <br />
                 </h2>
                 <br />
                 <br />

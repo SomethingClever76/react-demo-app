@@ -22,13 +22,17 @@ function JeopardyDisplay(props) {
                 </div>
 
                 <div className="jeopardyClue" onClick={props.pickCat} data-id={1}>
+                    {/* Needed to add {props.data[index of clue] &&} 
+                    (see lines 30, 35, 43, 48) because the component was not refreshing
+                    correctly on the resetForm. This makes sure that all the necessary data is in state 
+                    before displaying component. */}
                     <h2>
-                        {/* Category: {props.data[1].category.title} */}
+                        Category: {props.data[1] && props.data[1].category.title}
                     </h2>
                     <br />
                     <br />
                     <h2>
-                        {/* Value: {props.data[1].value}  <br /> */}
+                        Value: {props.data[1] && props.data[1].value}  <br />
                     </h2>
                     <br />
                     <br />
@@ -36,12 +40,12 @@ function JeopardyDisplay(props) {
 
                 <div className="jeopardyClue" onClick={props.pickCat} data-id={2}>
                     <h2>
-                        {/* Category: {props.data[2].category.title} */}
+                        Category: {props.data[2] && props.data[2].category.title}
                     </h2>
                     <br />
                     <br />
                     <h2>
-                        {/* Value: {props.data[2].value}  <br /> */}
+                        Value: {props.data[2] && props.data[2].value}  <br />
                     </h2>
                     <br />
                     <br />

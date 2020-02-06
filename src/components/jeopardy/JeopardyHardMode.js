@@ -23,7 +23,7 @@ class Jeopardy extends Component {
             this.setState({
                 data: result.data
             })
-            console.log(this.state.data)
+            // console.log(this.state.data)
         })
     }
 
@@ -39,13 +39,14 @@ class Jeopardy extends Component {
     // Updates categorySelected to true, so that conditional rendering will display
     // the question selected.
     categorySelect = (event) => {
-        console.log(event.currentTarget.dataset.id)
+        // console.log(event.currentTarget.dataset.id)
         this.setState({
             data: [this.state.data[event.currentTarget.dataset.id]],
             categorySelected: true
-        })
-        console.log(this.state.data)
-        console.log("answer: " + this.state.data[0].answer)
+        }, () => {console.log("answer: " + this.state.data[0].answer)})
+           
+       
+        // console.log(this.state.data)
     }
 
     // What we want to happen when user inputs text in answerBox.

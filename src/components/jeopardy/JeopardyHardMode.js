@@ -58,18 +58,27 @@ class Jeopardy extends Component {
     //NEED TO FIGURE OUT HOW TO UPDATE STATE SO THAT ONLY THE DATA FOR 
     //THE SELECTED CATEGORY REMAINS (Removing the other two questions, so 
     //that the answer checking functions will work as expected)
-    categorySelect = (event) => {
-        let state = this.state;
-        state[event.target.name] = event.target.value;
-        // let data = event.target.value;
-        this.setState(
-            {state}
-            //categorySelected: true}
-        )
-        console.log(this.state)
+    categorySelect = (index) => {
+        // let state = this.state;
+        // state[event.target.name] = event.target.value;
+        // // let data = event.target.value;
+        // this.setState(
+        //     {state}
+        //     //categorySelected: true}
+        // )
+        // console.log(this.state)
         // let formData = this.state.formData;
         // formData[event.target.name] = event.target.value;
         // this.setState({formData});
+
+            let data = this.state.data;
+            data = data[index];
+            // let data = event.target.value;
+            this.setState(
+                {data}
+                //categorySelected: true}
+            )
+            console.log(this.state.data)
     }
 
     // What we want to happen when user inputs text in answerBox.

@@ -13,7 +13,7 @@ function JeopardyDisplay(props) {
             
         return (
             <div className="parentDiv">
-                <div className="jeopardyClue" onClick={props.pickCat} name="data" value={props.data[0]}>
+                <div className="jeopardyClue" onClick={props.pickCat} index = "[0]">
                     <h2>
                         Category: {props.data[0].category.title}
                     </h2>
